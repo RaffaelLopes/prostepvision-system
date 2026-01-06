@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* =====================================================
-       STATUS DOS STEPS
+       STATUS DOS STEPS (REGRA FINAL)
     ===================================================== */
     function atualizarStatusSteps() {
 
@@ -126,16 +126,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 c.numeroSerie === numeroSerie && c.step === nome
             );
 
+            // confirmado
             if (confirmado) {
                 ind.className = 'status-indicator status-green';
                 return;
             }
 
+            // BURACO: step anterior ao atual não confirmado
             if (i < indexAtual) {
                 ind.className = 'status-indicator status-red';
                 return;
             }
 
+            // step atual em execução
             if (nome === stepAtual) {
                 ind.className = 'status-indicator status-orange';
             }
@@ -201,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     /* =====================================================
-       SINCRONIZAÇÃO ENTRE ABAS
+       SINCRONIZAÇÃO
     ===================================================== */
     window.addEventListener('storage', () => {
         atualizarStatusSteps();
@@ -209,17 +212,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     /* =====================================================
-       LOGOUT (CORRIGIDO — NÃO ZERA O GATE)
+       LOGOUT
     ===================================================== */
     logoutBtn.onclick = () => {
         if (!confirm('Sair do sistema?')) return;
-
-        // Remove SOMENTE dados da operação
-        sessionStorage.removeItem('prostep_matricula');
-        sessionStorage.removeItem('prostep_serie');
-        sessionStorage.removeItem('prostep_step');
-        sessionStorage.removeItem('prostep_perfil');
-
+        sessionStorage.clear();
         window.location.href = 'index.html';
     };
 
