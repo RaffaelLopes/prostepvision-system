@@ -34,23 +34,31 @@ document.addEventListener('DOMContentLoaded', function () {
     ===================================================== */
     function carregarTurno() {
 
-        const salvo = localStorage.getItem('prostep_turno_atual');
-        turnoAtual = salvo ? JSON.parse(salvo) : null;
+    const salvo = localStorage.getItem('prostep_turno_atual');
+    turnoAtual = salvo ? JSON.parse(salvo) : null;
 
-        if (!turnoAtual || turnoAtual.encerrado) {
-            turnoStatus.textContent = 'Nenhum turno ativo';
-            endTurnoBtn.disabled = true;
-            metaInput.disabled = true;
-            metaInput.value = '';
-        } else {
-            turnoStatus.textContent = `Turno ${turnoAtual.turno} em andamento`;
-            endTurnoBtn.disabled = false;
-            metaInput.disabled = false;
-            metaInput.value = turnoAtual.meta || '';
-        }
+    if (turnoAtual && turnoAtual.encerrado) {
 
-        atualizarDashboard();
+        turnoStatus.textContent = 'Nenhum turno ativo';
+        endTurnoBtn.disabled = true;
+        metaInput.disabled = true;
+        metaInput.value = '';
+
+    } else if (turnoAtual) {
+
+        turnoStatus.textContent = `Turno ${turnoAtual.turno} em andamento`;
+        endTurnoBtn.disabled = false;
+        metaInput.disabled = false;
+        metaInput.value = turnoAtual.meta || '';
+
+    } else {
+        // NÃO faz nada → mantém estado visual
+        // (Gate não deve se auto-resetar)
     }
+
+    atualizarDashboard();
+}
+
 
     startTurnoBtn.onclick = () => {
 
@@ -320,3 +328,4 @@ document.addEventListener('DOMContentLoaded', function () {
     carregarTabela();
     atualizarDashboard();
 });
+
