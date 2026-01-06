@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* =====================================================
-       STATUS DOS STEPS (REGRA FINAL)
+       STATUS DOS STEPS
     ===================================================== */
     function atualizarStatusSteps() {
 
@@ -126,19 +126,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 c.numeroSerie === numeroSerie && c.step === nome
             );
 
-            // confirmado
             if (confirmado) {
                 ind.className = 'status-indicator status-green';
                 return;
             }
 
-            // BURACO: step anterior ao atual não confirmado
             if (i < indexAtual) {
                 ind.className = 'status-indicator status-red';
                 return;
             }
 
-            // step atual em execução
             if (nome === stepAtual) {
                 ind.className = 'status-indicator status-orange';
             }
@@ -204,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     /* =====================================================
-       SINCRONIZAÇÃO
+       SINCRONIZAÇÃO ENTRE ABAS
     ===================================================== */
     window.addEventListener('storage', () => {
         atualizarStatusSteps();
@@ -212,11 +209,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     /* =====================================================
-       LOGOUT
+       LOGOUT (CORRIGIDO — NÃO ZERA O GATE)
     ===================================================== */
     logoutBtn.onclick = () => {
         if (!confirm('Sair do sistema?')) return;
-        sessionStorage.clear();
+
+        // Remove SOMENTE dados da operação
+        sessionStorage.removeItem('prostep_matricula');
+        sessionStorage.removeItem('prostep_serie');
+        sessionStorage.removeItem('prostep_step');
+        sessionStorage.removeItem('prostep_perfil');
+
         window.location.href = 'index.html';
     };
 
@@ -228,3 +231,5 @@ document.addEventListener('DOMContentLoaded', function () {
     atualizarBotao();
 
 });
+
+
