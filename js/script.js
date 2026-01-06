@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* =====================================================
        CONTROLE DE ABAS (LIMPA APENAS NO FECHAMENTO TOTAL)
-    ===================================================== */
+ 
     const abasAbertas = Number(
         localStorage.getItem('prostep_abas_abertas') || '0'
     );
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'prostep_abas_abertas',
             Math.max(abertas - 1, 0)
         );
-    });
+    });    ===================================================== */
 
     /* =====================================================
        ELEMENTOS
@@ -127,3 +127,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
