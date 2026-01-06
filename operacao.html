@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProStep Vision - Operação</title>
+
+    <link rel="stylesheet" href="/operacao.css">
+    <link rel="stylesheet" href="/checklist_por_step.css">
+    
+</head>
+<body>
+<div class="container">
+
+    <div class="top-info-row">
+        <div class="right-aligned-container">
+
+            <div class="current-step-box">
+                <div class="step-indicator" id="currentStepDisplay"></div>
+            </div>
+
+            <div class="serial-box">
+                <div class="serial-number" id="serialNumberDisplay"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h2 class="program-title">ProStep Vision System</h2>
+
+        <!-- LADO ESQUERDO -->
+        <div class="left-section">
+
+            <!-- CHECKLIST (APENAS ISSO) -->
+            <div class="operation-box"></div>
+
+        </div>
+
+        <!-- LADO DIREITO -->
+        <div class="right-section">
+            <div class="steps-container">
+
+                <div class="steps-list">
+                    <div class="step-item" data-step="Step 01"><span class="step-text">Step 01</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="Step 02"><span class="step-text">Step 02</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="Step 03"><span class="step-text">Step 03</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="Step 04"><span class="step-text">Step 04</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="Step 05"><span class="step-text">Step 05</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="Banco"><span class="step-text">Banco</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="Rear Wall"><span class="step-text">Rear Wall</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="Console"><span class="step-text">Console</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="Porta"><span class="step-text">Porta</span><div class="status-indicator status-white"></div></div>
+                    <div class="step-item" data-step="IPV"><span class="step-text">IPV</span><div class="status-indicator status-white"></div></div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="confirm-button" id="confirmBtn">Confirmar</button>
+                    <button class="logout-button" id="logoutBtn">Sair do Sistema</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="/js/session-control.js"></script>
+<script src="/js/checklist_por_step.js"></script>
+<script src="/js/operacao.js"></script>
+
+
+</body>
+</html>

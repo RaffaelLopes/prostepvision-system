@@ -1,0 +1,280 @@
+/* ================================
+   VARIÁVEIS DE COR
+================================ */
+:root {
+    --color-background: #FFC34A;
+    --color-brown: #966727;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-green: #37C239;
+    --color-red: #E73A33;
+    --color-yellow: #FFDE59;
+    --color-orange: #ffb951;
+
+    /* CONTROLE FINO DA COLUNA DIREITA */
+    --right-shift: 100px; /* <<< AJUSTE AQUI */
+}
+
+/* ================================
+   RESET E ESTILOS GERAIS
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* ================================
+   LINHA SUPERIOR
+================================ */
+.top-info-row {
+    margin-bottom: 20px;
+    margin-right: -80px;
+}
+
+.right-aligned-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 75px;
+}
+
+/* ================================
+   STEP ATUAL
+================================ */
+.current-step-box {
+    background-color: var(--color-brown);
+    border-radius: 8px;
+    border: 3px solid var(--color-black);
+    width: 150px;
+    height: 50px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-indicator {
+    color: var(--color-black);
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* ================================
+   SERIAL NUMBER
+================================ */
+.serial-box {
+    background-color: var(--color-brown);
+    border-radius: 8px;
+    border: 3px solid var(--color-black);
+
+    width: 240px;
+    height: 50px;
+    margin-right: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.serial-number {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 1;
+    
+}
+
+/* ================================
+   CONTEÚDO PRINCIPAL
+================================ */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: stretch;;
+}
+
+/* ================================
+   LADO ESQUERDO
+================================ */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.operation-box {
+    border-radius: 8px;
+    border: 3px solid var(--color-black);
+
+    height: 475px;
+    padding:30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 140%;
+    margin-left: -20%;
+}
+
+.operation-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.operation-number {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* ================================
+   LADO DIREITO (AGORA CONTROLÁVEL)
+================================ */
+.right-section {
+    transform: translateX(var(--right-shift));
+    height: 100%;
+}
+
+/* CONTAINER DE STEPS */
+.steps-container {
+    background-color: var(--color-yellow);
+    border-radius: 8px;
+    border: 3px solid var(--color-black);
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+/* ================================
+   LISTA DE STEPS
+================================ */
+.steps-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.step-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 2px solid var(--color-black);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.step-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ================================
+   STATUS
+================================ */
+.status-indicator {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--color-black);
+}
+
+.status-white { background-color: var(--color-white); }
+.status-green { background-color: var(--color-green); }
+.status-red   { background-color: var(--color-red); }
+.status-orange{ background-color: var(--color-orange); }
+
+/* ================================
+   BOTÕES
+================================ */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.confirm-button,
+.logout-button {
+    width: 40%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.confirm-button {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 3px solid var(--color-black);
+}
+
+.logout-button {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: 2px solid var(--color-black);
+}
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+@media (max-width: 900px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .right-aligned-container {
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .right-section {
+        transform: none;
+    }
+
+    .steps-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================================
+   TÍTULO DO PROGRAMA
+================================ */
+/* ================================
+   TÍTULO DO PROGRAMA (FIXO ACIMA)
+================================ */
+.program-title {
+    position: absolute;
+    top: 12px;           /* <<< sobe o título */
+    margin-left:-95px;
+
+    font-size: 26px;
+    font-weight: bold;
+    color: #000000;
+
+    pointer-events: none; /* não interfere em cliques */
+    z-index: 10;
+}

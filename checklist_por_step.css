@@ -1,0 +1,48 @@
+/* ================================
+   CHECKLIST POR STEP
+   ================================ */
+
+.operation-box {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Lista */
+.operation-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Item do checklist */
+.operation-box li {
+    font-size: 17px;
+    line-height: 1;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+
+    border-left: 5px solid #0f0f0f;
+    background-color: #FFEBA4;
+    border-radius: 6px;
+
+    font-weight: 500;
+}
+
+/* Último item sem margem extra */
+.operation-box li:last-child {
+    margin-bottom: 0;
+}
+
+/* Hover (visual, não funcional) */
+.operation-box li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .operation-box li {
+        font-size: 15px;
+        padding: 8px 10px;
+    }
+}

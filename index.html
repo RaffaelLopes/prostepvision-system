@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProStep Vision - Login</title>
+    <!-- Importa o CSS externo -->
+   <link rel="stylesheet" href="/style.css">
+    
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ProStep</h1>
+            <h2>VISION</h2>
+        </div>
+
+        <div class="content">
+            <div class="input-group">
+                <label class="input-label">Matrícula</label>
+                <input type="text" class="input-field" placeholder="Digite sua matrícula" id="matriculaInput">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Número de Série</label>
+                <input type="text" class="input-field" placeholder="Digite o número de série" id="numeroSerieInput">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Step</label>
+                
+                <div class="dropdown">
+                    <div class="dropdown-select" id="stepSelect" tabindex="0">Selecione o Step</div>
+
+                    <div class="dropdown-options" id="stepOptions">
+                        <div class="dropdown-option" data-value="Step 01">Step 01</div>
+                        <div class="dropdown-option" data-value="Step 02">Step 02</div>
+                        <div class="dropdown-option" data-value="Step 03">Step 03</div>
+                        <div class="dropdown-option" data-value="Step 04">Step 04</div>
+                        <div class="dropdown-option" data-value="Step 05">Step 05</div>
+                        <div class="dropdown-option" data-value="Banco">Banco</div>
+                        <div class="dropdown-option" data-value="Rear Wall">Rear Wall</div>
+                        <div class="dropdown-option" data-value="Console">Console</div>
+                        <div class="dropdown-option" data-value="Porta">Porta</div>
+                        <div class="dropdown-option" data-value="IPV">IPV</div>
+                        <div class="dropdown-option" data-value="GATE">GATE</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn" id="loginBtn">Login</button>
+        </div>
+
+        <div class="footer">
+            ProStep Vision System
+        </div>
+    </div>
+
+    <!-- Importa o JavaScript externo -->
+      <script src="/js/session-control.js"></script>
+    <script src="/js/script.js"></script>
+              
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>GATE – Quality Control</title>
+    <link rel="stylesheet" href="/gate.css">
+</head>
+<body>
+
+<div class="gate-container">
+
+    <!-- HEADER -->
+    <header class="gate-header">
+        <h1>GATE – Quality Control</h1>
+        <button id="logoutBtn" class="logout-button">Sair do Sistema</button>
+    </header>
+
+    <!-- PAINEL DE TURNO -->
+    <section class="turno-panel">
+
+        <div class="turno-controls">
+            <label for="turnoSelect">Turno:</label>
+
+            <select id="turnoSelect">
+                <option value="">Selecione</option>
+                <option value="1">1º Turno</option>
+                <option value="2">2º Turno</option>
+            </select>
+
+            <button id="startTurnoBtn">Iniciar Turno</button>
+            <button id="endTurnoBtn" disabled>Encerrar Turno</button>
+        </div>
+
+        <!-- META DO TURNO -->
+        <div class="turno-meta">
+            <label for="metaSeriesInput">Meta do Turno:</label>
+            <input
+                type="number"
+                id="metaSeriesInput"
+                min="0"
+                max="99"
+                maxlength="2"
+                placeholder="00"
+                disabled
+            >
+        </div>
+
+        <div id="turnoStatus" class="turno-status">
+            Nenhum turno ativo
+        </div>
+
+    </section>
+
+    <!-- TABELA -->
+    <div class="gate-table-container">
+        <table class="gate-table">
+            <thead>
+                <tr>
+                    <th>Nº de Série</th>
+                    <th>Step 01</th>
+                    <th>Step 02</th>
+                    <th>Step 03</th>
+                    <th>Step 04</th>
+                    <th>Step 05</th>
+                    <th>Banco</th>
+                    <th>Rear Wall</th>
+                    <th>Console</th>
+                    <th>Porta</th>
+                    <th>IPV</th>
+                </tr>
+            </thead>
+            <tbody id="gateTableBody"></tbody>
+        </table>
+    </div>
+
+    <!-- DASHBOARD -->
+    <section class="dashboard">
+        <h3>Dashboard do Turno</h3>
+
+        <div class="dashboard-cards">
+            <div class="card">
+                <span id="dashSeries">0</span>
+                <p>Séries</p>
+            </div>
+
+            <div class="card">
+                <span id="dashSteps">0</span>
+                <p>Steps Confirmados</p>
+            </div>
+
+            <div class="card">
+                <span id="dashPercent">0%</span>
+                <p>Conclusão</p>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+    </section>
+
+</div>
+
+<script src="/js/session-control.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="/js/gate.js"></script>
+
+</body>
+</html>
