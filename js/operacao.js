@@ -126,16 +126,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 c.numeroSerie === numeroSerie && c.step === nome
             );
 
+            // confirmado
             if (confirmado) {
                 ind.className = 'status-indicator status-green';
                 return;
             }
 
+            // BURACO: step anterior ao atual não confirmado
             if (i < indexAtual) {
                 ind.className = 'status-indicator status-red';
                 return;
             }
 
+            // step atual em execução
             if (nome === stepAtual) {
                 ind.className = 'status-indicator status-orange';
             }
@@ -201,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     /* =====================================================
-       SINCRONIZAÇÃO MULTI-ABAS
+       SINCRONIZAÇÃO
     ===================================================== */
     window.addEventListener('storage', () => {
         atualizarStatusSteps();
@@ -209,16 +212,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     /* =====================================================
-       LOGOUT (CORRIGIDO PARA VERCEL)
-       → NÃO LIMPA sessionStorage INTEIRO
+       LOGOUT
     ===================================================== */
     logoutBtn.onclick = () => {
         if (!confirm('Sair do sistema?')) return;
-
-        sessionStorage.removeItem('prostep_matricula');
-        sessionStorage.removeItem('prostep_serie');
-        sessionStorage.removeItem('prostep_step');
-
+        sessionStorage.clear();
         window.location.href = 'index.html';
     };
 
@@ -230,6 +228,5 @@ document.addEventListener('DOMContentLoaded', function () {
     atualizarBotao();
 
 });
-
 
 
