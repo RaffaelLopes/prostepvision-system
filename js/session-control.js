@@ -1,38 +1,13 @@
-/* =====================================================
-   SESSION CONTROL – PROSTEP VISION SYSTEM
-   -----------------------------------------------------
-   ✔ Compatível com Vercel e GitHub Pages
-   ✔ Não apaga dados automaticamente
-   ✔ Não depende de fechamento de navegador
-   ✔ Gate controla explicitamente o ciclo do turno
-   ✔ Evita resets inesperados entre abas
-===================================================== */
-
-(function () {
-
-    /*
-      Este arquivo existe como ponto central de controle de sessão.
-      Atualmente ele NÃO executa nenhuma ação automática.
-
-      Toda limpeza de dados globais (turno, confirmações, relatórios)
-      deve ocorrer EXCLUSIVAMENTE através do GATE,
-      via botão "Encerrar Turno".
-
-      Motivo:
-      - Ambientes estáticos (Vercel / GitHub Pages)
-        não permitem detecção confiável de fechamento de navegador.
-      - Qualquer tentativa de limpar localStorage automaticamente
-        gera bugs entre abas e páginas.
-
-      Futuro:
-      - Este arquivo pode evoluir para:
-        • autenticação real
-        • controle por token
-        • backend/API
-        • expiração de sessão
-    */
-
-    // Placeholder intencional
-    // Nenhuma lógica aqui por enquanto
-
-})();
+/* ===================================================== 
+CONTROLE GLOBAL DE SESSÃO (MULTI-ABAS CORRETO) - NUNCA limpa dados em logout - 
+Limpa SOMENTE quando o navegador é aberto novamente
+ ===================================================== */ 
+ (function () { 
+    const SESSION_KEY = 'prostep_browser_alive'; 
+ // Se esta chave não existe, é uma NOVA sessão de navegador
+    if (!localStorage.getItem(SESSION_KEY)) { 
+ // Limpa dados globais
+localStorage.removeItem('prostep_confirmacoes_gate'); 
+localStorage.removeItem('prostep_turno_atual');
+ // Marca navegador como ativo 
+       localStorage.setItem(SESSION_KEY, '1'); } })();
